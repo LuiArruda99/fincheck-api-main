@@ -1,6 +1,5 @@
-# Fincheck API
+# Fincheck Backend API
 
-Esta é a API que permite o funcionamento do Web App [Fincheck](https://github.com/nataelienai/fincheck-web).
 
 ## Tecnologias
 
@@ -12,36 +11,37 @@ Esta é a API que permite o funcionamento do Web App [Fincheck](https://github.c
 
 ## Dependências
 
-Para executar a API em seu computador, você precisará de [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/) e [Docker](https://docs.docker.com/engine/install/) instalados.
+Para executar a API em seu ambiente local, você precisará de [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/) e [Docker](https://docs.docker.com/engine/install/) instalados.
 
 ## Como executar
 
 1. Usando um terminal, clone o repositório:
 ```sh
-git clone https://github.com/nataelienai/fincheck-api.git
+git clone https://github.com/LuiArruda99/fincheck-api-main.git
 ```
 
 2. Entre na pasta do repositório clonado:
 ```sh
-cd fincheck-api
+cd fincheck-api-main
 ```
 
 3. Inicialize o banco de dados:
 
 - Na primeira vez, execute o comando:
 ```sh
-docker run --name fincheck-db -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres
+docker run --name <nomeie seu banco de dados> -e POSTGRES_USER=<nome de usuário> -e POSTGRES_PASSWORD=<senha> -p 5432:5432 -d postgres
 ```
 
 - Nas outras vezes, basta executar o comando:
 ```sh
-docker start fincheck-db
+docker start <nome do banco>
 ```
 
-4. Renomeie o arquivo `.env.example` para `.env` e troque o valor da variável `JWT_SECRET`:
+4. Renomeie o arquivo `.env.example` para `.env` e preencha as VAs:
 ```
-DATABASE_URL="postgresql://user:password@localhost:5432/fincheck?schema=public"
+DATABASE_URL=""
 JWT_SECRET=<insira uma chave secreta qualquer aqui>
+FRONTEND_URL=<URL do deploy do front>
 ```
 
 5. Instale as dependências do projeto:
